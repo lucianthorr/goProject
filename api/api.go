@@ -6,7 +6,7 @@ import (
 
 type Config struct {
 	// set dependencies
-	dbCli db.Client
+	DB db.Client
 }
 
 type Client interface {
@@ -14,16 +14,18 @@ type Client interface {
 	Run() error
 }
 
-func New(cfg *Config) Client {
+func New(cfg *Config, dbCli db.Client) Client {
 	c := &client{
-		cfg: cfg,
+		cfg:   cfg,
+		dbCli: dbCli,
 	}
 	// perform any other special bootstrapping
 	return c
 }
 
 type client struct {
-	cfg *Config
+	cfg   *Config
+	dbCli db.Client
 }
 
 func (c *client) Run() error {
