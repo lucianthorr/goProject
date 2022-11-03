@@ -1,12 +1,13 @@
 package api
 
 import (
+	"log"
+
 	"github.com/lucianthorr/goProject/db"
 )
 
 type Config struct {
-	// set dependencies
-	DB db.Client
+	Port int `yaml:"port"`
 }
 
 type Client interface {
@@ -29,5 +30,6 @@ type client struct {
 }
 
 func (c *client) Run() error {
-	return nil
+	log.Printf("Here's your port number: %d", c.cfg.Port)
+	return c.dbCli.Query("SELECT * from orders")
 }

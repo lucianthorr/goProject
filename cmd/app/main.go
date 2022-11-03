@@ -13,7 +13,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	dbCli := db.New(cfg.DB)
+	dbCli, err := db.New(cfg.DB)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	api := api.New(cfg.API, dbCli)
 

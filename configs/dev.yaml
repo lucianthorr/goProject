@@ -1,0 +1,6 @@
+api:
+  port: 8080
+db:
+  hostname: localhost:5432
+  db_name: developmentDB
+  username: db_user
