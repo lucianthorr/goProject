@@ -36,6 +36,16 @@ It's pretty common among Go projects, especially that generate more than one bin
 
 Here, we start things by creating the single `config` which contains each packages Config.  After that, generate a Client for each package that's needed for that command and wire them together with `New` and then start whatever actual logic needs to be performed.
 
-## What could be improved
+## Unit tests
 
-Probably a bunch of things but definitely secrets management.
+In [api_test.go](api/api_test.go), I have an example of using this design to fake the `db` package and test the API's [GetThing](api/api.go#51) endpoint.  It's pretty straightforward to both test that the API request is processed correctly, the DB is receiving the expected input and that the API is returning the expected output.  We can also test that errors are handled correctly at each point along the way.
+
+## Caveats and other notes.
+
+Regarding the API, I have mostly been using [gin](https://github.com/gin-gonic/gin) but I don't want to be prescriptive so I'm keeping it simple with the standard library here.
+
+There's probably a few better ways to handle secrets.  Here
+
+
+
+
