@@ -44,7 +44,7 @@ In [api_test.go](api/api_test.go), I have an example of using this design to fak
 
 Regarding the API, I have mostly been using [gin](https://github.com/gin-gonic/gin) but I don't want to be prescriptive so I'm keeping it simple with the standard library here.
 
-There's probably a few better ways to handle secrets.  Here
+There's probably a few better ways to handle secrets. In the past, I've deployed a lot of apps to AWS Lambda or App Runner and used environment variables to pass secrets and configuration details in.  It works great but when I think it can get unwieldy if you want to change the deployment because you have the details scattered through the codebase.  Unifying the config means that all the deployment-related dependencies are defined in one place.  I can then pull the from a file if deploying locally or pull them from something like AWS Secrets Manager if deployed in the Cloud.
 
 
 
