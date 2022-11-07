@@ -5,7 +5,7 @@ I've been working on Go projects for a few years and I have found that they have
 ## How to run
 
 ```
-export DB_PASSWORD=123; go run ./cmd/app
+go run ./cmd/app
 ```
 
 ## The `configs` folder/package
